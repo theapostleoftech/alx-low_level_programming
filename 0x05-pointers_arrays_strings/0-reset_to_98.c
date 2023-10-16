@@ -1,9 +1,9 @@
-include "main.h"
+#include "main.h"
 
 /**
  * main - Takes a pointer to an int
  *
- * Return: Always 0.
+ * Return: Always void.
  */
 void reset_to_98(int *n)
 {
