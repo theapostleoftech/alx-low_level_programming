@@ -8,7 +8,10 @@
  */
 int _strlen(char *s)
 {
-char str = *str;
-str = "I love ALX";
- *str = str;
+  int len = 0;
+  
+  for (int i = 0; str[i] != '\0'; i++) {
+    len++;
+  }
+  return len;
 }
