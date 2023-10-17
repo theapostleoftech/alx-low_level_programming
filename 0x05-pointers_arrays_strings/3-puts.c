@@ -6,11 +6,13 @@
  *
  * Return: void.
  */
-
 void _puts(char *str)
 {
-while (c != '\0')
-putchar(c);
-str++;
-putchar('\n');
+	for (; *str != '\0'; str++)
+	{
+		_putchar(*str);
+	}
+
+	_putchar('\n');
 }
+
