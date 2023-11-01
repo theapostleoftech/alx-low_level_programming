@@ -45,7 +45,7 @@ int **alloc_grid(int width, int height)
 		i++;
 	}
 	i = 0;
-	retunr (grid);
+	return (grid);
 
 }
 
