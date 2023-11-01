@@ -5,7 +5,6 @@
  * alloc_grid - returns a 2D array of integers
  * @width: width of the grid
  * @height: height of the grid
- * @grid: address of the grid
  *
  * Return: NULL when it fails
  */
@@ -33,11 +32,12 @@ int **alloc_grid(int width, int height)
 			{
 				free(grid[i]);
 				i--;
-			}free(grid);
+			}
+			free(grid);
 			return (NULL);
 		}
 		j = 0;
-		while(j < width)
+		while (j < width)
 		{
 			grid[i][j] = 0;
 			j++;
