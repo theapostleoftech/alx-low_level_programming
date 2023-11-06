@@ -15,4 +15,18 @@ struct dog
 
 };
 
+/**
+ * main - main function
+ *
+ * Return: Always 0
+ */
+
+int main(void)
+{
+	struct dog dog_t;
+
+	return (0);
+
+}
+
 #endif
