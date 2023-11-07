@@ -4,7 +4,7 @@
 #include "main.h"
 /**
  * init_dog - initialize struct dog
- * @d - struct dog pointer holding the memory location
+ * @d: struct dog pointer holding the memory location
  * @name: first member
  * @age: second member
  * @owner: third memeber
