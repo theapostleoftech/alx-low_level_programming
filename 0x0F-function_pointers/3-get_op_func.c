@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
-  * get_op_func _ function to perform operation
+  * get_op_func - function to perform operation
   * @s: operator passes as argument
   *
   * Return: pointer to the func
