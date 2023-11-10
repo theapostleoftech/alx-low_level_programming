@@ -1,101 +1,52 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "variadic_functions.h"
 
 /**
- * print_all - prints anything
- * @format: a list of arguments
+ * print_all - prints anything.
+ * @format: a list of types of arguments passed to the function.
  *
- * Return: 0
+ * Return: no return.
  */
 void print_all(const char * const format, ...)
 {
-	va_list printers;
-	fmat types[] = {
-		{ "c", print_ch },
-		{ "d", print_in },
-		{ "f", print_fl },
-		{ "s", print_pt_ch }
-	};
-	unsigned int i = 0;
-	unsigned int j = 0;
-	char *separator = "";
+	va_list valist;
+	unsigned int i = 0, j, c = 0;
+	char *str;
+	const char t_arg[] = "cifs";
 
-	va_start(printers, format);
-
-	while (format != NULL && format[i])
+	va_start(valist, format);
+	while (format && format[i])
 	{
 		j = 0;
-		while (j < 4)
+		while (t_arg[j])
 		{
-			if (format[i] == *types[j].identifier)
+			if (format[i] == t_arg[j] && c)
 			{
-				types[j].f(separator, printers);
-				separator = ", ";
-			}
-			j++
+				printf(", ");
+				break;
+			} j++;
 		}
-		i++;
+		switch (format[i])
+		{
+		case 'c':
+			printf("%c", va_arg(valist, int)), c = 1;
+			break;
+		case 'i':
+			printf("%d", va_arg(valist, int)), c = 1;
+			break;
+		case 'f':
+			printf("%f", va_arg(valist, double)), c = 1;
+			break;
+		case 's':
+			str = va_arg(valist, char *), c = 1;
+			if (!str)
+			{
+				printf("(nil)");
+				break;
+			}
+			printf("%s", str);
+			break;
+		} i++;
 	}
-	va_end(printers);
-	printf("\n");
-}
-
-/**
- * print_ch - prints a char
- * @separator: the char separator
- * @printers: list of arguments
- *
- * Return: 0
- */
-
-void print_ch(char *separator, va_list printers)
-{
-	printf("%s%c", separator, va_arg(printers, int));
-}
-
-/**
- * print_in - prints an integer
- * @separator: the int separator
- * @printers: a list of arguments
- *
- * Return: 0
- */
-
-void print_in(char *separator, va_list printers)
-{
-	printf("%s%d", separator, va_arg(printers, int));
-}
-
-/**
- * print_fl - prints a float
- * @separator: the float separator
- * @printers: a list of arguments
- *
- * Return: 0
- */
-
-void print_fl(char *separator, va_list printers)
-{
-	printf("%s%f", separator, va_arg(printers, double));
-}
-
-/**
- * print_pt_ch - prints a char pointer
- * @separator: the pointer separator
- * @printers: list of arguments
- *
- * Return: 0
- */
-void print_pt_ch(char *separator, va_list printers)
-{
-	char *ps = va_arg(printers, char *);
-
-	if (ps == NULL)
-	{
-		printf("%s%s", separator, "(nil)");
-		return;
-	}
-
-	printf("%s%s", separator, ps);
+	printf("\n"), va_end(valist);
 }
