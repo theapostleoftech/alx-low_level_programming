@@ -1,20 +1,15 @@
-ection .data
-hello db 'Hello, Holberton', 0; our string
-format db '%s', 10, 0; format for printf newline is 10 in decimal
+	SECTION .data
+message:	db "Hello, Holberton", 0
+format:	db "%s", 10, 0
 
-section .text
-global main
-extern printf
-
+	SECTION .text
+	extern printf
+	global main
 main:
-; push parameter for printf in reverse order
-push format
-push hello
+	mov esi, message
+	mov edi, format
+	mov eax, 0
+	call printf
 
-; call printf
-call printf
-add exp, 8 ; clean up stack
-
-, return 0
-xor eax, eax
-ret
+	mov eax, 0
+	ret
