@@ -6,7 +6,7 @@
  *
  * Return: the address of the new element
  */
-list_t *add_node_end(list_t **head, cont char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *n, *t;
 
@@ -32,5 +32,4 @@ list_t *add_node_end(list_t **head, cont char *str)
 		t->next = n;
 	}
 	return (*head);
-	}
 }
