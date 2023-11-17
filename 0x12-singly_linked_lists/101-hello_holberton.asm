@@ -1,6 +1,6 @@
 ection .data
 hello db 'Hello, Holberton', 0; our string
-format db '%s', 10, 0; format for printf
+format db '%s', 10, 0; format for printf newline is 10 in decimal
 
 section .text
 global main
