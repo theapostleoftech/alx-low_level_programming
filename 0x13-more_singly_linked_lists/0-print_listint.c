@@ -1,4 +1,5 @@
-#inlcude "lists.h"
+#include "lists.h"
+#include <stdio.h>
 /**
  * print_listint - prints a list
  * @h: a list to be printed
