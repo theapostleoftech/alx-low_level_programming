@@ -8,28 +8,28 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *file;
+	ssize_t op, re, wr;
+	char *buffer;
 
-	file = fopen(filename, "r + w");
+	if (filename == NULL)
+		return (0);
 
-	if (file == NULL)
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
+		return (0);
+
+	op = open(filename, "r");
+	re = read(op, buffer, letters);
+	wr = write(STDOUT_FILENO, buffer, re);
+
+	if (op == -1 || re == -1 || wr == -1 || wr != re)
 	{
-		perror("Error opening file");
-		return (-1);
-	}
-
-	char buffer[letters];
-	ssize_t bytes = fread(buffer, sizeof(char), sizeof(buffer), file);
-
-	if (bytes == 0)
-	{
-		perror("Error reading file");
-		fclose(file);
+		free(buffer);
 		return (0);
 	}
+	free(buffer);
+	close(0);
 
+	return (wr);
 
-	fclose(file);
-
-	return (letters);
 }
