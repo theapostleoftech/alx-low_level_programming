@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0064);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 664);
 	if (file_to < 0)
 	{
 		display_write_error(argv[2]);
