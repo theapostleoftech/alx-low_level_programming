@@ -62,14 +62,14 @@ int main(int argc, char **argv)
 	}
 
 	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
+	if (file_from < 0)
 	{
 		display_read_error(argv[1]);
 		exit(98);
 	}
 
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0064);
-	if (file_to == -1)
+	if (file_to < 0)
 	{
 		display_write_error(argv[2]);
 		close_file(file_from);
@@ -77,7 +77,7 @@ int main(int argc, char **argv)
 	}
 	do {
 		re = read(file_from, buffer_size, 1024);
-		if (re == -1)
+		if (re < 0)
 		{
 			display_read_error(argv[1]);
 			close_file(file_from);
@@ -85,7 +85,7 @@ int main(int argc, char **argv)
 			exit(98);
 		}
 		wr = write(file_to, buffer_size, re);
-		if (wr == -1)
+		if (wr < 0)
 		{
 			display_write_error(argv[2]);
 			close_file(file_from);
