@@ -93,11 +93,10 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	} while (re >= 1024);
-
 	if (close_file(file_from) < 0)
-			exit(100);
+		exit(100);
 	if (close_file(file_from) < 0)
-			exit(100);
+		exit(100);
 	if (close_file(file_to) < 0)
 	{
 		close_file(file_from);
