@@ -12,7 +12,7 @@ void display_write_error(char *file);
  */
 int close_file(int fd)
 {
-	if (close(fd) == -1)
+	if (close(fd) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		return (-1);
