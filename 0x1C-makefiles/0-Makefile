@@ -1,2 +1,2 @@
-all : $(school)
-	gcc -c all $(school)
+all :
+	gcc main.c school.c -o school
