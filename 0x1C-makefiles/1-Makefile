@@ -1,0 +1,3 @@
+all : 
+	$(oBJ)
+	CC $(SRC) $(OBJ)-O  NAME 
