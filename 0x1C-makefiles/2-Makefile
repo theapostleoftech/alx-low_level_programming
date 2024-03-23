@@ -8,4 +8,4 @@ NAME = school
 
 all:
 	$(CC) $(SRC) $(OBJ) $(NAME)
-	$(CC) all $(OBJ) $(NAME)
+	#$(CC) all $(OBJ) $(NAME)
