@@ -3,11 +3,11 @@
 
 CC = gcc
 SRC = main.c school.c
-OBJ = $(patsubst %.c, %.o, $(SRC))
+OBJ = $(patsubst %.c,%.o,$(SRC))
 NAME = school
 
-%.o:%.c
+%.o: %.c
 	$(CC) -c -o $@ $<
 
 all: $(OBJ)
-	$(CC) $(SRC) $(OBJ) -o  $(NAME)
+	$(CC) $(OBJ) -o  $(NAME)
