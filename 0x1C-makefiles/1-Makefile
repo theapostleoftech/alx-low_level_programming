@@ -1,3 +1,11 @@
-all : 
-	$(oBJ)
-	CC $(SRC) $(OBJ)-O  NAME 
+# Usage:
+# make # builds all excutable files
+
+.PHONY = all
+
+CC = gcc
+
+SRC := main.c school.c
+
+all :
+	$(CC) $(SRC) -o school
